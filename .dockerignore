@@ -1,0 +1,19 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Volume
+data/
+
+# Log files
+*.log
+
+# Ignore Git
+.git/
+.gitignore
+
+# WIP projects
+web.js
+decoder.js

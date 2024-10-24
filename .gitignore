@@ -1,0 +1,15 @@
+# Node.js dependencies
+node_modules/
+
+# Environment variables
+.env
+
+# Volume
+data/
+
+# Log files
+*.log
+
+# WIP projects
+web.js
+decoder.js

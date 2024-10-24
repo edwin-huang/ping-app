@@ -1,0 +1,29 @@
+services:
+  my-postgres:
+    image: postgres:12.20-alpine3.20
+    environment:
+      POSTGRES_PASSWORD: ${PGPASS}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - internal-network
+
+  node-container:
+    build: .
+    depends_on:
+      - my-postgres
+    env_file:
+      - .env
+    networks:
+      - internal-network
+    volumes:
+      - .:/usr/src/app
+    working_dir: /usr/src/app
+    command: ["node", "index.js"]
+
+volumes:
+  pgdata:
+
+networks:
+  internal-network:
+    driver: bridge
